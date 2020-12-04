@@ -20,7 +20,7 @@
             "Anteris\\FakerMap\\": "./src"
         }
     },
-    "dev-autoload": {
+    "autoload-dev": {
         "psr-4": {
             "Anteris\\Tests\\FakerMap\\": "./tests"
         }
