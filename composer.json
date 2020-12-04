@@ -2,11 +2,11 @@
     "name": "anteris-dev/faker-map",
     "description": "Guesses which Faker provider method you might need based on the name passed.",
     "require": {
-        "fakerphp/faker": "^1.12"
+        "fakerphp/faker": "^1.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.5",
-        "friendsofphp/php-cs-fixer": "^2.16"
+        "phpunit/phpunit": "^9.0",
+        "friendsofphp/php-cs-fixer": "^2.0"
     },
     "license": "MIT",
     "authors": [
