@@ -8,12 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - `FakerResolver` class which will now make resolutions to Faker.
-- Data types to the dictionary per #3.
-- Social security updates to dictionary per #1.
-- Pass through to faker per #2.
+- Data types to the dictionary.
+- Social security updates to dictionary.
+- Pass through to faker so the `FakerMap` class can be used just like faker as well.
 
 ### Changed
-- API used for generating values to be more consistent and allow fallback to default values per #4.
+- API used for generating values to be more consistent and allow fallback to default values.
 
 ## [v0.1.0] - 2020-12-04
 ### Added
