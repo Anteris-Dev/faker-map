@@ -23,6 +23,18 @@ class FakerDictionary
      * @var array An array of words that should be mapped to faker methods.
      */
     public static array $words = [
+        'binary'        => ['sha256'],
+        'biginteger'    => ['numberBetween', -100000, 100000],
+        'char'          => ['randomLetter'],
+        'datetimetz'    => ['datetimetz'],
+        'float'         => ['randomFloat', 19, 2],
+        'double'        => ['randomFloat', 19, 2],
+        'geometry'      => ['word'],
+        'integer'       => ['numberBetween', -10000, 10000],
+        'ip'            => ['ipv4'],
+        'ipaddress'     => ['ipv4'],
+        'linestring'    => ['word'],
+        'longtext'      => ['text'],
         'female'        => ['name', 'female'],
         'male'          => ['name', 'male'],
         'mac'           => ['macAddress'],
@@ -47,6 +59,8 @@ class FakerDictionary
         'latitude'      => ['latitude'],
         'longitude'     => ['longitude'],
         'phone'         => ['phoneNumber'],
+        'security'      => ['ssn'],
+        'social'        => ['ssn'],
         'summary'       => ['text'],
         'title'         => ['sentence', 4],
         'zip'           => ['postcode'],
