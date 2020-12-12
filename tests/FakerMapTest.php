@@ -15,18 +15,9 @@ use PHPUnit\Framework\TestCase;
  */
 class FakerMapTest extends TestCase
 {
-    public function test_it_can_boot_faker_methods()
-    {
-        $map        = new FakerMap;
-        $methods    = $map->options();
-
-        $this->assertIsArray($methods);
-        $this->assertContains('firstName', $methods);
-    }
-
     public function test_it_will_fallback_to_dictionary()
     {
-        $city = (new FakerMap)->closest('homeCity');
+        $city = FakerMap::closest('homeCity')->analyze();
 
         $this->assertInstanceOf(FakerMapData::class, $city);
         $this->assertInstanceOf(FakerMethod::class, $city->method);
@@ -36,7 +27,7 @@ class FakerMapTest extends TestCase
 
     public function test_it_will_guess_if_not_found()
     {
-        $color = (new FakerMap)->closest('color');
+        $color = FakerMap::closest('color')->analyze();
 
         $this->assertInstanceOf(FakerMapData::class, $color);
         $this->assertInstanceOf(FakerMethod::class, $color->method);
@@ -46,7 +37,7 @@ class FakerMapTest extends TestCase
 
     public function test_it_will_match_exactly()
     {
-        $color = (new FakerMap)->closest('hslColor');
+        $color = FakerMap::closest('hslColor')->analyze();
 
         $this->assertInstanceOf(FakerMapData::class, $color);
         $this->assertInstanceOf(FakerMethod::class, $color->method);
@@ -56,14 +47,14 @@ class FakerMapTest extends TestCase
 
     public function test_it_will_return_null_if_not_found()
     {
-        $color = (new FakerMap)->closest('hooha!');
+        $color = FakerMap::closest('hooha!')->fake();
 
         $this->assertNull($color);
     }
 
     public function test_calling_fake_will_execute_faker()
     {
-        $color = (new FakerMap)->closest('hslColor');
+        $color = FakerMap::closest('hslColor');
         $this->assertNotNull($color->fake());
     }
 }
