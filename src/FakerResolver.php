@@ -71,8 +71,9 @@ class FakerResolver
      */
     public function default($value)
     {
-        $clone = clone $this;
+        $clone          = clone $this;
         $clone->default = $value;
+
         return $clone;
     }
 
@@ -84,10 +85,11 @@ class FakerResolver
         float $percentageSimilarRequirement,
         int $letterDisparityRequirement
     ) {
-        $clone = clone $this;
-        $clone->query = $query;
+        $clone                               = clone $this;
+        $clone->query                        = $query;
         $clone->percentageSimilarRequirement = $percentageSimilarRequirement;
-        $clone->letterDisparityRequirement = $letterDisparityRequirement;
+        $clone->letterDisparityRequirement   = $letterDisparityRequirement;
+
         return $clone;
     }
 
@@ -149,7 +151,7 @@ class FakerResolver
     }
 
     /**
-     * Performs the actual resolution to a faker method. 
+     * Performs the actual resolution to a faker method.
      */
     protected function resolve()
     {
