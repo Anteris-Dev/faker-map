@@ -4,7 +4,7 @@
 
 Have you ever wanted faker to just create some values for you automatically without having to instruct it on what they represent? Yeah, probably not, but at least you now know it's possible!
 
-This package lets you turn this faker command: `(\Faker\Factory::create)->name('female')` into this short thing: `FakerMap::femaleName()`. It also allows you to dynamically lookup the method you might be looking for by doing something like this: `(new FakerMap)->closest('male name')->fake()`. If you aren't careful, this could become your new favorite way to use faker.
+This package lets you turn this faker command: `(\Faker\Factory::create())->name('female')` into this short thing: `FakerMap::femaleName()`. It also allows you to dynamically lookup the method you might be looking for by doing something like this: `(new FakerMap)->closest('male name')->fake()`. If you aren't careful, this could become your new favorite way to use faker.
 
 So how do you install it? How does it work? Let's dive in!
 
@@ -51,7 +51,7 @@ Finally, the `guess()` method allows you to determine how close or distant the m
 Each of these methods returns an instance of `Anteris\FakerMap\FakerResolver` which gives you various addon methods that can be called to help you with your search for the perfect method. These methods are:
 
 - `default($value)` - Lets you define a default value in case we cannot find an appropriate method on the Faker class.
-- `fake()` - Takes all the information gathered and returns the end result.
+- `fake(...$parameters)` - Takes all the information gathered and returns the end result. Any parameters passed will be used in the faker method.
 
 See examples of all of these below:
 
@@ -65,6 +65,10 @@ FakerMap::closest('female name')->fake();
 
 // A custom guess that allows as low as 50.5% similarity and 3 characters to be changed
 FakerMap::guess('female name', 50.5, 3)->fake();
+
+// A guess that passes some parameters
+// Returns: A number between 1 and 40
+FakerMap::closest('number between')->fake(1, 40);
 
 // A guess that definitely won't have a match so it defaults to "Yikes!"
 FakerMap::closest('some unknown value')->default('Yikes!')->fake();
