@@ -1,6 +1,6 @@
-# Your Factory's Guide to Faking <branch>
-[![Tests](https://github.com/Anteris-Dev/faker-map/workflows/Tests/badge.svg)](https://github.com/Anteris-Dev/faker-map/actions?query=workflow%3ATests)
-[![Style](https://github.com/Anteris-Dev/faker-map/workflows/Style/badge.svg)](https://github.com/Anteris-Dev/faker-map/actions?query=workflow%3AStyle)
+# Your Factory's Guide to Faking
+[![Tests](https://github.com/Anteris-Dev/faker-map/workflows/Tests/badge.svg?branch=<branch>)](https://github.com/Anteris-Dev/faker-map/actions?query=workflow%3ATests+branch%3A<branch>)
+[![Style](https://github.com/Anteris-Dev/faker-map/workflows/Style/badge.svg?branch=<branch>)](https://github.com/Anteris-Dev/faker-map/actions?query=workflow%3AStyle+branch%3A<branch>)
 
 Have you ever wanted faker to just create some values for you automatically without having to instruct it on what they represent? Yeah, probably not, but at least you now know it's possible!
 
