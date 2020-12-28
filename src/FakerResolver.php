@@ -101,8 +101,9 @@ class FakerResolver
      */
     public function type(string $type): FakerResolver
     {
-        $clone = clone $this;
+        $clone       = clone $this;
         $clone->type = $type;
+
         return $clone;
     }
 

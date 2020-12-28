@@ -9,7 +9,7 @@ use Faker\Generator;
  * @method static FakerResolver closest(string $query)
  * @method static FakerResolver closeEnough(string $query)
  * @method static FakerResolver guess(string $query, float $percentageSimilarRequirement, int $letterDisparityRequirement)
- * 
+ *
  * @property string $name
  * @method string name(string $gender = null)
  * @property string $firstName
