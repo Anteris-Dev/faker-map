@@ -20,6 +20,9 @@ class FakerResolver
     /** @var string The Faker method we are looking for. */
     protected string $query;
 
+    /** @var string The type our value should equate to. */
+    protected string $type;
+
     /** @var int Determines what percentage of similarity the query must have to the method. */
     protected float $percentageSimilarRequirement = 0;
 
@@ -94,6 +97,16 @@ class FakerResolver
     }
 
     /**
+     * Forces the faked value to be of the passed type.
+     */
+    public function type(string $type): FakerResolver
+    {
+        $clone = clone $this;
+        $clone->type = $type;
+        return $clone;
+    }
+
+    /**
      * Performs the search and returns the generated value.
      */
     public function fake(...$parameters)
@@ -106,10 +119,17 @@ class FakerResolver
         }
 
         // Sweet, call the faker method
-        return call_user_func_array(
+        $generated = call_user_func_array(
             [$this->faker, $result->method->name],
             $parameters ?? $result->method->parameters
         );
+
+        // Double check the type
+        if (isset($this->type) && gettype($generated) != $this->type) {
+            return $this->default;
+        }
+
+        return $generated;
     }
 
     /**
