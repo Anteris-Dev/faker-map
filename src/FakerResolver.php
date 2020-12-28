@@ -36,7 +36,7 @@ class FakerResolver
      * Allows the creation of a new instance from the root one. This just lets
      * use make more efficient use of the faker methods array.
      */
-    public function new()
+    public function new(): FakerResolver
     {
         return new static($this->faker, $this->fakerMethods);
     }
@@ -44,7 +44,7 @@ class FakerResolver
     /**
      * Returns an object with statistical data about the match.
      */
-    public function analyze()
+    public function analyze(): ?FakerMapData
     {
         return $this->resolve();
     }
@@ -52,7 +52,7 @@ class FakerResolver
     /**
      * Returns the closest match to the passed query.
      */
-    public function closest(string $query)
+    public function closest(string $query): FakerResolver
     {
         return $this->guess($query, 75, 10);
     }
@@ -60,7 +60,7 @@ class FakerResolver
     /**
      * Returns the first match made.
      */
-    public function closeEnough(string $query)
+    public function closeEnough(string $query): FakerResolver
     {
         return $this->guess($query, 0, -1);
     }
@@ -69,7 +69,7 @@ class FakerResolver
      * Allows the user to set a default value in case we don't come up with
      * something.
      */
-    public function default($value)
+    public function default($value): FakerResolver
     {
         $clone          = clone $this;
         $clone->default = $value;
@@ -84,7 +84,7 @@ class FakerResolver
         string $query,
         float $percentageSimilarRequirement,
         int $letterDisparityRequirement
-    ) {
+    ): FakerResolver {
         $clone                               = clone $this;
         $clone->query                        = $query;
         $clone->percentageSimilarRequirement = $percentageSimilarRequirement;
@@ -153,7 +153,7 @@ class FakerResolver
     /**
      * Performs the actual resolution to a faker method.
      */
-    protected function resolve()
+    protected function resolve(): ?FakerMapData
     {
         $revisedSearch = strtolower($this->query);
         $revisedSearch = preg_replace('/[-_\s]/', '', $revisedSearch);

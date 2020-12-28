@@ -41,7 +41,7 @@ class FakerDictionary
         'macaddress'    => ['macAddress'],
         'address1'      => ['streetAddress'],
         'address2'      => ['secondaryAddress'],
-        'address'       => ['safeAddress'],
+        'address'       => ['address'],
         'content'       => ['paragraphs', 3, true],
         'company'       => ['company'],
         'country'       => ['country'],
