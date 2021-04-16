@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v2.0.0] - 2021-04-16
+
+## Added
+- Various performance benefits that make this version over 8x faster than the previous version.
+
+## Changed
+- Most of the API to be more simple and straightforward.
+
+## Removed
+- Support for any PHP versions below 8.
+
 ## [v1.1.0] - 2020-12-28
 ### Added
 - `type()` method to `FakerResolver::class`. This allows you to specify the type that the generated value should equal.

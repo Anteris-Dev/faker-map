@@ -4,23 +4,11 @@ namespace Anteris\FakerMap;
 
 class FakerDictionary
 {
-    public static function resolve(string $search)
-    {
-        foreach (static::$words as $word => $fakerMethod) {
-            if (strpos($search, $word) !== false) {
-                return $fakerMethod;
-            }
-        }
-
-        return null;
-    }
-
     /**
      * This array is based on the one built by Jason McCreary for Laravel Shift.
      * He did an excellent job with the work, though it did not fit our needs here.
      *
      * @see https://github.com/laravel-shift/faker-registry/
-     * @var array An array of words that should be mapped to faker methods.
      */
     public static array $words = [
         'binary'        => ['sha256'],
@@ -37,6 +25,8 @@ class FakerDictionary
         'longtext'      => ['text'],
         'female'        => ['name', 'female'],
         'male'          => ['name', 'male'],
+        'femaleName'    => ['name', 'female'],
+        'maleName'      => ['name', 'male'],
         'mac'           => ['macAddress'],
         'macaddress'    => ['macAddress'],
         'address1'      => ['streetAddress'],

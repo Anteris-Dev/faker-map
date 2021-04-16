@@ -40,3 +40,6 @@ jobs:
 
       - name: Execute tests
         run: vendor/bin/phpunit
+
+      - name: Execute Psalm
+        run: vendor/bin/psalm
